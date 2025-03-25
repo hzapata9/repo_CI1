@@ -11,12 +11,24 @@ pipeline {
                 checkout scm 
             } 
         }
-        stage('Build') { 
+        stage('Install') { 
             steps { 
                 script { 
                     try { 
                         echo "⚙️ Instalando dependencias..." 
-                        sh 'npm install' 
+                        sh 'npm install'
+                    } catch (Exception e) { 
+                        error("❌ Error en la etapa de Install") 
+                    } 
+                } 
+            } 
+        } 
+ 
+        stage('Build') { 
+            steps { 
+                script { 
+                    try { 
+                        echo "⚙️ Haciendo Build..." 
                         sh 'npm run build' 
                     } catch (Exception e) { 
                         error("❌ Error en la etapa de Build") 
@@ -24,7 +36,7 @@ pipeline {
                 } 
             } 
         } 
- 
+
         stage('Test') { 
             steps { 
                 script { 
