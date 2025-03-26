@@ -16,7 +16,7 @@ pipeline {
                 script { 
                     try { 
                         echo "⚙️ Instalando dependencias..." 
-                        sh '/usr/bin/npm install'
+                        sh '/usr/local/bin/npm install'
                     } catch (Exception e) { 
                         error("❌ Error en la etapa de Install") 
                     } 
