@@ -16,7 +16,7 @@ pipeline {
                 script { 
                     try { 
                         echo "⚙️ Instalando dependencias..." 
-                        sh 'whoami'
+                        sh 'export NVM_DIR="$HOME/.nvm" && source $NVM_DIR/nvm.sh && npm install'
                     } catch (Exception e) { 
                         error("❌ Error en la etapa de Install") 
                     } 
