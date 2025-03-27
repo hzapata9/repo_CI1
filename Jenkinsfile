@@ -16,7 +16,7 @@ pipeline {
                 script { 
                     try { 
                         echo "⚙️ Instalando dependencias..." 
-                        sh 'export NVM_DIR="$HOME/.nvm" && source $NVM_DIR/nvm.sh && npm install'
+                        sh 'sudo /usr/local/Cellar/node/23.10.0_1/bin/npm install'
                     } catch (Exception e) { 
                         error("❌ Error en la etapa de Install") 
                     } 
