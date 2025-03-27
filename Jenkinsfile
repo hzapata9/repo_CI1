@@ -16,7 +16,7 @@ pipeline {
                 script { 
                     try { 
                         echo "⚙️ Instalando dependencias..." 
-                        sh 'pwd'
+                        sh 'whoami'
                     } catch (Exception e) { 
                         error("❌ Error en la etapa de Install") 
                     } 
