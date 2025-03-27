@@ -2,6 +2,8 @@ pipeline {
     agent any 
     environment { 
         NODE_VERSION = '23' // Cambia si usas otra versión de Node.js 
+        PATH = "/usr/local/bin:/usr/local/Cellar/node/23.10.0_1/bin:$PATH"
+    
     } 
  
     stages { 
@@ -16,7 +18,10 @@ pipeline {
                 script { 
                     try { 
                         echo "⚙️ Instalando dependencias..." 
-                        sh 'sudo /usr/local/Cellar/node/23.10.0_1/bin/npm install'
+                        
+                        sh 'whoami'
+                        sh 'which npm'
+                        sh 'npm install'
                     } catch (Exception e) { 
                         error("❌ Error en la etapa de Install") 
                     } 
